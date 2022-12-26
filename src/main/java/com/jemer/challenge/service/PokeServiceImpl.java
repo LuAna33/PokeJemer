@@ -72,7 +72,6 @@ public class  PokeServiceImpl implements PokeService {
             List<String> listaTipos = new ArrayList<>();
             List<String> listaMovimientos = new ArrayList<>();
 
-
             for (HabilidadesDto habilidadesDto:pokemonInfoBasicaDto.getAbilities()) {
                 listaHabilidades.add(habilidadesDto.getHabilidad().getName());
             }
