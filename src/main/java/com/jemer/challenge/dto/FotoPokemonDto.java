@@ -1,8 +1,15 @@
 package com.jemer.challenge.dto;
 
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 
 public class FotoPokemonDto {
 
-    public String front_default;
-    public String back_default;
+    private String front_default;
+    private String back_default;
 }

@@ -3,9 +3,9 @@ import com.jemer.challenge.dto.*;
 
 public interface PokeService {
 
-        InfoBasicaDto getInfoBasicaPokemon(String offset, String limit);
+    ResponseInfoBasicaDto getInfoBasicaPokemon(String offset, String limit);
 
-         PokemonInfoDetalladaDto getInfoDetalladaPokemon(String pokemonId);
+    ResponsePokemonConsultaInfoDetalladaDto getInfoDetalladaPokemon(String pokemonId);
 }
 
 

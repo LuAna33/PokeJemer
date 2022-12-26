@@ -1,14 +1,20 @@
 package com.jemer.challenge.dto;
 
-import java.util.ArrayList;
+import lombok.*;
 
+import java.util.ArrayList;
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class PokemonInfoDetalladaDto {
-    public int id;
-    public String name;
-    public FotoPokemonDto sprites;
-    public ArrayList<TipoDto> types;
-    public int weight;
-    public ArrayList<HabilidadesDto> abilities;
-    public ArrayList<MovimientosDto> moves;
+    private int id;
+    private String name;
+    private FotoPokemonDto sprites;
+    private ArrayList<TipoDto> types;
+    private int weight;
+    private ArrayList<HabilidadesDto> abilities;
+    private ArrayList<MovimientosDto> moves;
 
 }
