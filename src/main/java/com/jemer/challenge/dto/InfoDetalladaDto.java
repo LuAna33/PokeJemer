@@ -8,8 +8,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ListaMovimientosDto {
-    public List<PokemonInfoDetalladaDto> listaPokeMovimientoDetalle;
+public class InfoDetalladaDto {
+    public PokemonInfoDetalladaDto infoDetallePokemon;
 
 
 }
