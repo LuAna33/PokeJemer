@@ -14,12 +14,10 @@ import java.util.List;
 public class  PokeServiceImpl implements PokeService {
 
     RestTemplate restTemplate = new RestTemplate();
-
-    @Autowired
-    RestTemplate restTemplate3 = new RestTemplate();
     @Override
-    public ListaPokeInfoBasicaDto getInfoBasicaPokemon(String offset, String limit) {
-        List<PokemonInfoBasicaDto> listaDetalle=new ArrayList<>();
+    public InfoBasicaDto getInfoBasicaPokemon(String offset, String limit) {
+
+        List<PokemonInfoBasicaDto> listaInfoBasica = new ArrayList<>();
 
         ResponseEntity<ResponseConsultaPokemonDto> response =
                 restTemplate.getForEntity(
@@ -31,34 +29,23 @@ public class  PokeServiceImpl implements PokeService {
             ResponseEntity<PokemonInfoBasicaDto> responsePokemon =
                     restTemplate.getForEntity(pokemonId.url, PokemonInfoBasicaDto.class);
             PokemonInfoBasicaDto pokeModelResponse = responsePokemon.getBody();
-            listaDetalle.add(pokeModelResponse);
+            listaInfoBasica.add(pokeModelResponse);
         }
 
-        ListaPokeInfoBasicaDto listaRespuesta= ListaPokeInfoBasicaDto.builder()
-                .listaPokemonDetalle(listaDetalle)
+        InfoBasicaDto listaRespuesta= InfoBasicaDto.builder()
+                .infoBasicaPokemon(listaInfoBasica)
                 .build();
         return listaRespuesta;
 
     }
-    public ListaMovimientosDto getInfoDetalladaPokemon(String offset, String limit) {
-        List<PokemonInfoDetalladaDto> listaDetalleMovimientos = new ArrayList<>();
-        ResponseEntity<ResponseConsultaPokemonDto> response =
+        public PokemonInfoDetalladaDto getInfoDetalladaPokemon(String pokemonId) {
+        //List<PokemonInfoDetalladaDto> pokemonDetalle = new ArrayList<>();
+        ResponseEntity<PokemonInfoDetalladaDto> response =
                 restTemplate.getForEntity(
-                        "https://pokeapi.co/api/v2/pokemon?offset=".concat(String.valueOf(offset)).concat("&limit=").concat(String.valueOf(limit)),
-                        ResponseConsultaPokemonDto.class);
-        ResponseConsultaPokemonDto pokelista = response.getBody();
+                        "https://pokeapi.co/api/v2/pokemon/".concat(pokemonId),
+                        PokemonInfoDetalladaDto.class);
+        return response.getBody();
 
-        for (ResultDto pokemonId:pokelista.results) {
-            ResponseEntity<PokemonInfoDetalladaDto> responsePokemon =
-                    restTemplate.getForEntity(pokemonId.url, PokemonInfoDetalladaDto.class);
-            PokemonInfoDetalladaDto pokeModelResponse = responsePokemon.getBody();
-            listaDetalleMovimientos.add(pokeModelResponse);
-        }
-
-        ListaMovimientosDto listaMovimientosRespuesta= ListaMovimientosDto.builder()
-                .listaPokeMovimientoDetalle(listaDetalleMovimientos)
-                .build();
-        return listaMovimientosRespuesta;
 
     }
 }
