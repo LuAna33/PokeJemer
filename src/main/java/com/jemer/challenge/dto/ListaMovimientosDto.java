@@ -2,7 +2,6 @@ package com.jemer.challenge.dto;
 
 import lombok.*;
 
-import java.util.ArrayList;
 import java.util.List;
 @Getter
 @Setter
@@ -10,7 +9,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class ListaMovimientosDto {
-    public List<PokemonDesafioDto2> listaPokeMovimientoDetalle;
+    public List<PokemonInfoDetalladaDto> listaPokeMovimientoDetalle;
 
 
 }
