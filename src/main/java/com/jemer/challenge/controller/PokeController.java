@@ -12,12 +12,12 @@ public class PokeController {
     private PokeService pokeService;
 
     @GetMapping("/listaInfoBasica")
-    public InfoBasicaDto getInfoBasicaPokemon(@RequestParam String offset, @RequestParam String limit){
+    public ResponseInfoBasicaDto getInfoBasicaPokemon(@RequestParam String offset, @RequestParam String limit){
         return pokeService.getInfoBasicaPokemon(offset, limit);
     }
 
     @GetMapping("/listaDetallePokemon")
-    public PokemonInfoDetalladaDto getInfoDetalladaPokemon(@RequestParam String pokemonId){
+    public ResponsePokemonConsultaInfoDetalladaDto getInfoDetalladaPokemon(@RequestParam String pokemonId){
         return pokeService.getInfoDetalladaPokemon(pokemonId);
     }
 
