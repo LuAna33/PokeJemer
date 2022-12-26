@@ -9,6 +9,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ListaPokeInfoBasicaDto {
-    public List<PokemonInfoBasicaDto> listaPokemonDetalle;
+public class InfoBasicaDto {
+    public List<PokemonInfoBasicaDto> infoBasicaPokemon;
 }
