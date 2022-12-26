@@ -15,7 +15,7 @@ public class  PokeServiceImpl implements PokeService {
 
     RestTemplate restTemplate = new RestTemplate();
     @Override
-    public InfoBasicaDto getInfoBasicaPokemon(String offset, String limit) {
+    public ResponseInfoBasicaDto getInfoBasicaPokemon(String offset, String limit) {
 
         List<PokemonInfoBasicaDto> listaInfoBasica = new ArrayList<>();
 
@@ -27,25 +27,76 @@ public class  PokeServiceImpl implements PokeService {
 
         for (ResultDto pokemonId:pokelista.results) {
             ResponseEntity<PokemonInfoBasicaDto> responsePokemon =
-                    restTemplate.getForEntity(pokemonId.url, PokemonInfoBasicaDto.class);
+                    restTemplate.getForEntity(pokemonId.getUrl(), PokemonInfoBasicaDto.class);
             PokemonInfoBasicaDto pokeModelResponse = responsePokemon.getBody();
             listaInfoBasica.add(pokeModelResponse);
         }
 
-        InfoBasicaDto listaRespuesta= InfoBasicaDto.builder()
-                .infoBasicaPokemon(listaInfoBasica)
+        List<ResponsePokemonConsultaInfoBasicaDto> listaRespuesta = new ArrayList<>();
+        for (PokemonInfoBasicaDto pokemonInfoBasicaDto:listaInfoBasica) {
+            List<String> listaHabilidades = new ArrayList<>();
+            List<String> listaTipos = new ArrayList<>();
+
+            for (HabilidadesDto habilidadesDto:pokemonInfoBasicaDto.getAbilities()) {
+                listaHabilidades.add(habilidadesDto.getHabilidad().getName());
+            }
+            for (TipoDto tipoDto: pokemonInfoBasicaDto.getTypes()) {
+                listaTipos.add(tipoDto.getTipo().getName());
+            }
+            ResponsePokemonConsultaInfoBasicaDto respuesta= ResponsePokemonConsultaInfoBasicaDto.builder()
+                    .foto(pokemonInfoBasicaDto.getSprites().getFront_default())
+                    .nombre(pokemonInfoBasicaDto.getName())
+                    .peso(pokemonInfoBasicaDto.getWeight())
+                    .habilidades(listaHabilidades)
+                    .tipo(listaTipos)
+                    .build();
+            listaRespuesta.add(respuesta);
+        }
+        ResponseInfoBasicaDto responseInfoBasicaDto = ResponseInfoBasicaDto.builder()
+                .responseInfoBasicaPokemons(listaRespuesta)
                 .build();
-        return listaRespuesta;
+
+        return responseInfoBasicaDto;
 
     }
-        public PokemonInfoDetalladaDto getInfoDetalladaPokemon(String pokemonId) {
-        //List<PokemonInfoDetalladaDto> pokemonDetalle = new ArrayList<>();
+        public ResponsePokemonConsultaInfoDetalladaDto getInfoDetalladaPokemon(String pokemonId) {
+
         ResponseEntity<PokemonInfoDetalladaDto> response =
                 restTemplate.getForEntity(
                         "https://pokeapi.co/api/v2/pokemon/".concat(pokemonId),
                         PokemonInfoDetalladaDto.class);
-        return response.getBody();
+
+        PokemonInfoDetalladaDto pokemonInfoBasicaDto= response.getBody();
+
+            List<String> listaHabilidades = new ArrayList<>();
+            List<String> listaTipos = new ArrayList<>();
+            List<String> listaMovimientos = new ArrayList<>();
+
+            for (HabilidadesDto habilidadesDto:pokemonInfoBasicaDto.getAbilities()) {
+                listaHabilidades.add(habilidadesDto.getHabilidad().getName());
+            }
+            for (TipoDto tipoDto: pokemonInfoBasicaDto.getTypes()) {
+                listaTipos.add(tipoDto.getTipo().getName());
+            }
+            for (MovimientosDto movimientosDto: pokemonInfoBasicaDto.getMoves()) {
+                listaMovimientos.add(movimientosDto.getMovimiento().getName());
+            }
+
+            ResponsePokemonConsultaInfoBasicaDto respuesta= ResponsePokemonConsultaInfoBasicaDto.builder()
+                    .foto(pokemonInfoBasicaDto.getSprites().getFront_default())
+                    .nombre(pokemonInfoBasicaDto.getName())
+                    .peso(pokemonInfoBasicaDto.getWeight())
+                    .habilidades(listaHabilidades)
+                    .tipo(listaTipos)
+                    .build();
+
+            ResponsePokemonConsultaInfoDetalladaDto responseDetalle = ResponsePokemonConsultaInfoDetalladaDto.builder()
+                    .infoBasicaDto(respuesta)
+                    .movimientos(listaMovimientos)
+                    .build();
+        return responseDetalle;
 
 
     }
+
 }

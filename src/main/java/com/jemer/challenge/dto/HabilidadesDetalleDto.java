@@ -2,10 +2,16 @@ package com.jemer.challenge.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class HabilidadesDetalleDto {
 
-        public String name;
+        private String name;
         @JsonIgnore
-        public String url;
+        private String url;
 }
