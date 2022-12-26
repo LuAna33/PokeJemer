@@ -3,6 +3,7 @@ C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Vers
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Home.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Platinum.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\GenerationIi.java
+C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\PokemonDesafioDto2.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Ability2.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\GenerationI.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\OfficialArtwork.java
@@ -22,6 +23,7 @@ C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Vers
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\HeartgoldSoulsilver.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\VersionGroup.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\service\PokeService.java
+C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\ListaMovimientosDto.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Type.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\FireredLeafgreen.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\GenerationVii.java
@@ -38,6 +40,8 @@ C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Spec
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Other.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\RubySapphire.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\GenerationViii.java
+C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\PokemonDesafioDto.java
+C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\ListaPokeInfoBasicaDto.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Animated.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Form.java
 C:\Users\LuAna\Repositorios\PokeJemer\src\main\java\com\jemer\challenge\dto\Yellow.java
